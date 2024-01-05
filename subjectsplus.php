@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: SubjectsPlus integration with WordPress
+Plugin Name: SubjectsPlus Integration with WordPress
 Description: Custom plugin for integrating SubjectsPlus with WordPress using shortcodes.
 Version: 1.0
 Author: Abid Fakhre Alam
@@ -94,12 +94,14 @@ function get_sp($atts) {
         'type' => ''
     ), $atts));
 
-    $subjectsplus = new subjectsplus_info();
-    $subjectsplus->set_sp_url(get_option('sp_api_url'));
-    $subjectsplus->set_sp_key(get_option('sp_api_key'));
+    $subjectsplus = new SubjectsPlusInfo(); // Using CamelCase for class name
+    $subjectsplus->setSpUrl(get_option('sp_api_url'));
+    $subjectsplus->setSpKey(get_option('sp_api_key'));
 
     // Call the appropriate method based on shortcode parameters and return the result
-    return $subjectsplus->setup_sp_query($atts, $display);
+    ob_start(); // Capture output to return
+    $subjectsplus->setupSpQuery($atts, $display);
+    return ob_get_clean(); // Return the captured output
 }
 
 add_shortcode('sp', 'get_sp');
