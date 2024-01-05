@@ -44,11 +44,28 @@ To query the api, you need to choose a service. Currently, subjectsplus has 5 av
 
 Staff shortcodes
 -------------------------------------------
-This shortcode returns information about a single staff member and displays it without using a table:
+Filtering by Email:
 
-	[sp service='staff' email='someone@miami.edu' display='table']
+	[sp service="staff" display="table" max="10" email="example@example.com"]
 
-This shortcode returns information about an entire department and displays it as a table:
+Filtering by Department:
 
-	[sp service='staff department='99' display='table']
+	[sp service="staff" display="table" max="10" department="Department Name"]
 
+Displaying All Personnel:
+
+	[sp service="staff" display="table" max="10" personnel="all"]
+ 
+Customizing the Number of Staff Members:
+
+	[sp service="staff" display="table" max="5"]
+
+Staff Information (Card Display):
+
+	[sp service="staff" display="card" max="10"]
+
+Staff Information (Table Display):
+
+	[sp service="staff" display="table" max="10"]
+
+You can customize the attributes based on your specific needs. Adjust the service, display, max, email, department, and personnel attributes as required.
